@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'jetbrains-mono-reguler';
+  src: url('../../assets/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf');
+}
+@font-face {
+  font-family: 'jetbrains-mono-bold';
+  src: url('../../assets/fonts/jetbrains-mono/JetBrainsMono-Bold.ttf');
+}
+
+* {
+  padding: 0; margin: 0;
+  border: none; outline: none;
+}
+body {
+  font-family: jetbrains-mono-reguler;
+}
+p, input, textarea, button {
+  font-size: 1rem;
+}

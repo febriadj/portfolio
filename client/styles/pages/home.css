@@ -1,0 +1,23 @@
+.home {
+  position: relative;
+  width: 100%;
+  display: flex; justify-content: center;
+}
+.home-wrap {
+  width: 1224px;
+  padding: 40px 20px;
+}
+
+.banner {
+  display: flex;
+}
+.banner .title {
+  font-family: jetbrains-mono-bold;
+  margin: 10px 0;
+}
+.banner .title .link {
+  background: #212121;
+  color: #ffffff;
+  text-decoration: underline #ffffff;
+  padding: 0 10px;
+}
