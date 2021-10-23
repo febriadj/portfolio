@@ -1,23 +1,120 @@
 .home {
-  position: relative;
-  width: 100%;
-  display: flex; justify-content: center;
-}
-.home-wrap {
   width: 1224px;
+  display: grid; gap: 80px;
   padding: 40px 20px;
 }
-
-.banner {
-  display: flex;
-}
+/* start of banner region */
 .banner .title {
-  font-family: jetbrains-mono-bold;
+  font-family: averta-bold;
   margin: 10px 0;
+  display: flex; flex-direction: column;
+  font-size: 3rem;
 }
-.banner .title .link {
-  background: #212121;
+.banner .title .bright {
+  text-decoration: underline;
+}
+.banner .scroll-btn {
+  display: flex; align-items: center;
+  gap: 10px;
+  background: transparent;
+  margin: 40px 0 0 0;
+}
+.banner .scroll-btn .paragraf {
+  border-bottom: 1px solid #212121;
+  padding: 0 0 1px 0;
+}
+/* end of banner region */
+
+/* start of gridbox region */
+.gridbox {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+
+.gridbox .box { position: relative; overflow-x: hidden; }
+.gridbox img { display: block; width: 100%; height: auto; }
+.gridbox .title { font-family: averta-bold; }
+
+.gridbox .box .license {
+  position: absolute;
+  right: 0; bottom: 0;
   color: #ffffff;
-  text-decoration: underline #ffffff;
-  padding: 0 10px;
+  text-align: right;
+  transform: rotate(90deg) translate(0, 10px);
+  transform-origin: top right;
+}
+.gridbox .box .license * {
+  font-size: 0.75rem;
+  color: #ffffffdd;
+}
+.gridbox .box .info {
+  position: absolute;
+  width: 100%; height: 100%;
+  display: flex;
+  opacity: 0;
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.1s;
+}
+.gridbox .box:hover .info {
+  opacity: 1;
+}
+.gridbox .box:hover .license {
+  display: none;
+}
+.gridbox .box .info .info-wrap {
+  background: #1a1b1ebb;
+  color: #ffffff;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 20px;
+}
+.gridbox .spelling {
+  display: flex; align-items: center;
+  gap: 10px;
+}
+.gridbox .spelling .strip {
+  display: block;
+  width: 100px; height: 1px;
+  background: #ffffff;
+}
+.gridbox .box .info .info-wrap .paragraf {
+  margin: 5px 0 0 0;
+  color: #ffffffdd;
+}
+.gridbox .box .info .info-wrap .footer .link {
+  text-decoration: none;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 0 0 1px 0;
+}
+/* end of gridbox region */
+
+/* start of about region */
+.profile {
+  display: flex; flex-direction: column;
+  align-items: center;
+}
+.profile .about {
+  max-width: 678px;
+  display: grid; gap: 20px;
+}
+.profile .about .header .title {
+  font-family: averta-bold;
+}
+/* end of about region */
+
+@media screen and (max-width: 768px) {
+  .banner .title {
+    font-size: 2rem;
+  }
+  /* start of gridbox region */
+  .gridbox {
+    grid-template-columns: 1fr;
+  }
+  .gridbox .box .info .info-wrap {
+    overflow-x: hidden;
+  }
+  .gridbox .box .info .info-wrap .paragraf {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+  }
+  /* end of gridbox region */
 }

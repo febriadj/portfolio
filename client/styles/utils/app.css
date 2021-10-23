@@ -3,8 +3,12 @@
   src: url('../../assets/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf');
 }
 @font-face {
-  font-family: 'jetbrains-mono-bold';
-  src: url('../../assets/fonts/jetbrains-mono/JetBrainsMono-Bold.ttf');
+  font-family: 'averta-bold';
+  src: url('../../assets/fonts/averta-standard/averta-semibold.ttf');
+}
+@font-face {
+  font-family: 'averta';
+  src: url('../../assets/fonts/averta-standard/averta-regular.ttf');
 }
 
 * {
@@ -12,8 +16,24 @@
   border: none; outline: none;
 }
 body {
-  font-family: jetbrains-mono-reguler;
+  font-family: averta;
 }
 p, input, textarea, button {
   font-size: 1rem;
+  border-radius: 0;
+}
+*::selection {
+  background: #1a1b1e;
+  color: #ffffff;
+}
+.app {
+  position: relative;
+  width: 100%;
+  display: flex; justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  p, input, textarea, button {
+    font-size: 0.95rem;
+  }
 }

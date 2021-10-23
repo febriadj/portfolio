@@ -1,0 +1,19 @@
+.navbar {
+  width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  background: #1a1b1e;
+  display: flex; justify-content: center; align-items: center;
+  width: 40px; height: 40px;
+}
+.menu {
+  display: flex; align-items: center;
+  gap: 10px;
+}
+.menu .link {
+  text-decoration: none;
+  color: #000000;
+  border-bottom: 1px solid #000000;
+  font-family: averta-bold;
+}
