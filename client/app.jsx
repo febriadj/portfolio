@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './styles/utils/app.css';
+import 'boxicons';
+import style from './styles/utils/app.css';
 
 import Home from './pages/home';
 import NotFound from './pages/notfound';
@@ -8,10 +9,13 @@ import NotFound from './pages/notfound';
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/"><Home /></Route>
-        <Route><NotFound /></Route>
-      </Switch>
+      <div className={style.app}>
+        <span className={style.pointer}></span>
+        <Switch>
+          <Route exact path="/"><Home /></Route>
+          <Route><NotFound /></Route>
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }
