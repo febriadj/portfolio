@@ -26,6 +26,9 @@
         "react/no-unescaped-entities": "off",
         "react/jsx-one-expression-per-line": "off",
         "react/prop-types": "off",
-        "react/self-closing-comp": "off"
+        "react/self-closing-comp": "off",
+        "react/button-has-type": "off",
+        "import/extensions": "off",
+        "import/no-unresolved": "off"
     }
 }
