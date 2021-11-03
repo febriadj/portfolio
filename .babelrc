@@ -4,6 +4,10 @@
     "@babel/preset-env"
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    ["wildcard", {
+      "exts": ["js", "jsx", "png", "jpg"],
+      "useCamelCase": true
+    }]
   ]
 }
