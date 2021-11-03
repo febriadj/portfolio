@@ -23,17 +23,61 @@ p, input, textarea, button {
   border-radius: 0;
 }
 *::selection {
+  background: #cec5b1;
+}
+
+.cookie {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex; justify-content: flex-end;
+  transform: translate(0, 100%);
+  z-index: 9;
+}
+.cookie-wrap {
+  padding: 20px;
+  transform: translate(0, -100%);
+  width: 500px;
+  transition-delay: 0.5s;
+}
+.cookie .box {
   background: #1a1b1e;
+  color: #ffffffdd;
+  padding: 20px;
+  display: grid; justify-items: flex-start;
+}
+.cookie .box .title {
+  font-family: averta-bold;
   color: #ffffff;
 }
-.app {
-  position: relative;
-  width: 100%;
-  display: flex; justify-content: center;
+.cookie .box .paragraf {
+  margin: 10px 0 20px 0;
+  font-size: 0.95rem;
+}
+.cookie .box .paragraf .link {
+  color: #ffffffdd;
+  text-decoration: none;
+  border-bottom: 1px solid #ffffffdd;
+  border-bottom-style: dashed;
+  padding: 0 0 1px 0;
+}
+.cookie .box .action {
+  display: flex; align-items: center;
+  gap: 10px;
+}
+.cookie .box .action .btn {
+  background: transparent;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 0 0 1px 0;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
   p, input, textarea, button {
     font-size: 0.95rem;
+  }
+  .cookie-wrap {
+    padding: 0;
   }
 }

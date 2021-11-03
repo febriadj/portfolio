@@ -1,7 +1,13 @@
 .footer {
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 40px 20px;
+  position: relative;
+  width: 100%;
+  display: flex; justify-content: center;
+}
+.footer-wrap {
+  width: 1224px;
+  display: grid; grid-template-columns: 1fr auto; gap: 40px 20px;
   align-items: flex-start;
+  padding: 20px;
   grid-template-areas:
   "wrapper01 wrapper02"
   "wrapper03 wrapper03";
@@ -40,7 +46,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .footer {
+  .footer-wrap {
     grid-template-columns: 1fr;
     grid-template-areas:
     "wrapper01"

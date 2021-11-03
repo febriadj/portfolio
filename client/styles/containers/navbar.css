@@ -1,6 +1,12 @@
 .navbar {
+  position: relative;
   width: 100%;
+  display: flex; justify-content: center;
+}
+.navbar-wrap {
+  width: 1224px;
   display: flex; justify-content: space-between; align-items: center;
+  padding: 20px;
 }
 .logo {
   background: #1a1b1e;
