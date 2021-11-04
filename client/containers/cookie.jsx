@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Cookie({ style, handleCookie }) {
+function Cookie({ style, handleCookie, darkMode }) {
   const handleSetCookie = () => {
     document.cookie = `client=${Date.now()}.${1000 - Math.random() * 9000}`;
     setTimeout(() => handleCookie(), 500);
@@ -10,7 +10,7 @@ function Cookie({ style, handleCookie }) {
   return (
     <div className={style.cookie}>
       <div className={style['cookie-wrap']}>
-        <div className={style.box}>
+        <div className={style.box} style={{ background: darkMode ? '#0d0e0f' : null }}>
           <h3 className={style.title}>This website use Cookies.</h3>
           <p className={style.paragraf}>
             <span>

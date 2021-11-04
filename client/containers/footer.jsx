@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '../styles/containers/footer.css';
 
-function Footer() {
+function Footer({ handleDarkMode }) {
   return (
     <div className={style.footer}>
       <div className={style['footer-wrap']}>
@@ -24,6 +24,23 @@ function Footer() {
           <p className={style.copyright}>
             &copy; {new Date().getFullYear()} febriadji.
           </p>
+          <div className={style.theme}>
+            <button
+              className={style.btn}
+              onClick={handleDarkMode}
+              value="true"
+            >
+              Dark
+            </button>
+            <span> / </span>
+            <button
+              className={style.btn}
+              onClick={handleDarkMode}
+              value="false"
+            >
+              Light
+            </button>
+          </div>
         </div>
       </div>
     </div>
