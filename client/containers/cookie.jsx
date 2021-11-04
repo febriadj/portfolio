@@ -10,7 +10,7 @@ function Cookie({ style, handleCookie, darkMode }) {
   return (
     <div className={style.cookie}>
       <div className={style['cookie-wrap']}>
-        <div className={style.box} style={{ background: darkMode ? '#0d0e0f' : null }}>
+        <div className={style.box} style={{ background: darkMode ? '#0b0b0c' : null }}>
           <h3 className={style.title}>This website use Cookies.</h3>
           <p className={style.paragraf}>
             <span>

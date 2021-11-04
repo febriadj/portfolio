@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'boxicons';
 import style from './styles/utils/app.css';
@@ -16,7 +17,9 @@ import {
 
 function App() {
   const [cookie, setCookie] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+
+  const props = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   const handleCookie = () => {
     const arr = document.cookie.split(' ');
@@ -30,21 +33,31 @@ function App() {
 
   const handleDarkMode = (event) => {
     if (event.target.value === 'true') {
-      setDarkMode(true);
+      dispatch({
+        type: 'counter/darkMode',
+        payload: {
+          mode: true,
+        },
+      });
     } else {
-      setDarkMode(false);
+      dispatch({
+        type: 'counter/darkMode',
+        payload: {
+          mode: false,
+        },
+      });
     }
   }
 
   useEffect(() => {
-    document.body.style = darkMode ? 'background: #1a1b1e; color: #ffffffdd' : null;
+    document.body.style = props.darkMode ? 'background: #151518; color: #ffffffdd' : null;
     handleCookie();
 
     setTimeout(() => {
       document.getElementsByClassName(style.cookie)[0].style = 'opacity: 1';
     }, 3000);
   }, [
-    cookie, darkMode,
+    cookie, props.darkMode,
   ]);
 
   return (
@@ -56,7 +69,7 @@ function App() {
           <Cookie
             handleCookie={handleCookie}
             style={style}
-            darkMode={darkMode}
+            darkMode={props.darkMode}
           />
         )
       }
@@ -65,11 +78,29 @@ function App() {
         <Route><NotFound /></Route>
       </Switch>
       <Footer
-        darkMode={darkMode}
+        darkMode={props.darkMode}
         handleDarkMode={(event) => handleDarkMode(event)}
       />
     </BrowserRouter>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const response = {
+    darkMode: state.darkMode,
+  }
+  return response;
+}
+
+const mapDispatchToProps = (dispatch) => {
+  const response = {
+    darkMode: () => dispatch({
+      type: 'counter/darkMode',
+    }),
+  }
+  return response;
+}
+
+export default connect(
+  mapStateToProps, mapDispatchToProps,
+)(App);

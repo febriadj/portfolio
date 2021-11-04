@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect, useSelector } from 'react-redux';
 
 function Banner({ style }) {
+  const props = useSelector((state) => state);
   // set current age
   const currentAge = () => new Date().getFullYear() - new Date('2002-02-26').getFullYear();
 
@@ -13,11 +15,28 @@ function Banner({ style }) {
         <span>Based in Jakarta, Indonesia</span>
       </h1>
       <button type="button" className={style['scroll-btn']}>
-        <p className={style.paragraf}>Scroll to See More</p>
-        <box-icon type="reguler" name="right-arrow-alt"></box-icon>
+        <p
+          className={style.paragraf}
+          style={{ color: props.darkMode ? '#ffffffdd' : null, borderColor: props.darkMode ? '#ffffffdd' : null }}
+        >
+          Scroll to See More
+        </p>
+        <box-icon
+          color={props.darkMode ? '#ffffffdd' : '#000000'}
+          type="reguler"
+          name="right-arrow-alt"
+        >
+        </box-icon>
       </button>
     </div>
   );
 }
 
-export default Banner;
+const mapStateToProps = (state) => {
+  const response = {
+    darkMode: state.darkMode,
+  }
+  return response;
+}
+
+export default connect(mapStateToProps)(Banner);

@@ -1,11 +1,14 @@
 import React from 'react';
+import { connect, useSelector } from 'react-redux';
 
 function Profile({ style }) {
+  const props = useSelector((state) => state);
+
   return (
     <div className={style.profile}>
       <div className={style.about}>
         <div className={style.header}>
-          <span className={style.strip}></span>
+          <span className={style.strip} style={{ background: props.darkMode ? '#ffffffdd' : null }}></span>
           <div className={style.text}>
             <h1 className={style.title}>About Me</h1>
             <p className={style.spelling}>əˈbout mē</p>
@@ -29,4 +32,11 @@ function Profile({ style }) {
   );
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+  const response = {
+    darkMode: state.darkMode,
+  }
+  return response;
+}
+
+export default connect(mapStateToProps)(Profile);

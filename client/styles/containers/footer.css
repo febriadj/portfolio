@@ -27,7 +27,6 @@
 }
 .wrapper01 .title {
   font-family: averta-bold;
-  color: #000000;
 }
 .wrapper01 .contact {
   display: flex; align-items: center; flex-wrap: wrap;
@@ -44,6 +43,10 @@
 .wrapper03 {
   grid-area: wrapper03;
   display: flex; justify-content: space-between; align-items: flex-end;
+}
+.wrapper03 .theme {
+  display: flex; align-items: flex-end;
+  gap: 5px;
 }
 .wrapper03 .theme .btn {
   background: transparent;

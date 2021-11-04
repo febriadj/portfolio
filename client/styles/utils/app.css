@@ -45,7 +45,7 @@ p, input, textarea, button {
 .cookie-wrap {
   padding: 20px;
   transform: translate(0, -100%);
-  width: 500px;
+  width: 450px;
   transition-delay: 0.5s;
 }
 .cookie .box {
