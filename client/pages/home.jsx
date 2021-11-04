@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import style from '../styles/pages/home.css';
 
 import {
-  platform as Platform,
   banner as Banner,
   profile as Profile,
   gridbox as GridBox,
@@ -24,7 +23,6 @@ function Home() {
         <Banner style={style} />
         <GridBox style={style} />
         <Profile style={style} />
-        <Platform style={style} />
       </div>
     </div>
   );
