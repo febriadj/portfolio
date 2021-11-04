@@ -17,6 +17,12 @@
 }
 body {
   font-family: averta;
+  -moz-transition: background-color 0.5s ease-in;
+  -o-transition: background-color 0.5s ease-in;
+  -webkit-transition: background-color 0.5s ease-in;
+  transition: background-color 0.5s ease-in;
+  background: #ffffff;
+  color: #000000;
 }
 p, input, textarea, button {
   font-size: 1rem;
@@ -32,6 +38,8 @@ p, input, textarea, button {
   width: 100%;
   display: flex; justify-content: flex-end;
   transform: translate(0, 100%);
+  opacity: 0;
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.3s;
   z-index: 9;
 }
 .cookie-wrap {
