@@ -16,6 +16,7 @@ import {
 
 function App() {
   const [cookie, setCookie] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleCookie = () => {
     const arr = document.cookie.split(' ');
@@ -27,10 +28,23 @@ function App() {
     }
   }
 
+  const handleDarkMode = (event) => {
+    if (event.target.value === 'true') {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+  }
+
   useEffect(() => {
+    document.body.style = darkMode ? 'background: #1a1b1e; color: #ffffffdd' : null;
     handleCookie();
+
+    setTimeout(() => {
+      document.getElementsByClassName(style.cookie)[0].style = 'opacity: 1';
+    }, 3000);
   }, [
-    cookie,
+    cookie, darkMode,
   ]);
 
   return (
@@ -42,6 +56,7 @@ function App() {
           <Cookie
             handleCookie={handleCookie}
             style={style}
+            darkMode={darkMode}
           />
         )
       }
@@ -49,7 +64,10 @@ function App() {
         <Route exact path="/"><Home /></Route>
         <Route><NotFound /></Route>
       </Switch>
-      <Footer />
+      <Footer
+        darkMode={darkMode}
+        handleDarkMode={(event) => handleDarkMode(event)}
+      />
     </BrowserRouter>
   );
 }
