@@ -12,7 +12,9 @@
   font-family: averta-bold;
   line-height: 4rem;
   margin: 0 0 40px 0;
-  text-shadow: -5px 5px 0 #cec5b1;
+}
+.title span {
+  opacity: 0.5;
 }
 .paragraf:nth-last-of-type(1) {
   margin: 0 0 40px 0;

@@ -104,9 +104,6 @@
 .profile .about .header {
   display: flex; align-items: center;
 }
-.profile .about .header .title {
-  text-decoration: underline dashed;
-}
 .profile .about .header .strip {
   display: block;
   width: 2px; height: 30px;

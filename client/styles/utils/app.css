@@ -28,10 +28,15 @@ p, input, textarea, button {
   font-size: 1rem;
   border-radius: 0;
 }
-*::selection {
-  background: #cec5b1;
-}
 
+.loading {
+  position: fixed;
+  width: 100%; height: 100%;
+  display: flex; justify-content: center; align-items: center;
+  background: #ffffff;
+  transition: cubic-bezier(.98,.01,.03,.99) 0.3s;
+  z-index: 9;
+}
 .cookie {
   position: fixed;
   bottom: 0;
