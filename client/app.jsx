@@ -4,18 +4,20 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'boxicons';
 import style from './styles/utils/app.css';
 
-import Cookie from './containers/cookie';
 import {
   notfound as NotFound,
   home as Home,
 } from './pages/*';
 
 import {
+  loading as Loading,
+  cookie as Cookie,
   navbar as Navbar,
   footer as Footer,
 } from './containers/*';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [cookie, setCookie] = useState(false);
 
   const props = useSelector((state) => state);
@@ -50,19 +52,20 @@ function App() {
   }
 
   useEffect(() => {
-    document.body.style = props.darkMode ? 'background: #151518; color: #ffffffdd' : null;
+    document.body.style = props.darkMode ? 'background: #151518; color: #ffffffdd; ' : null;
     handleCookie();
+    setTimeout(() => setIsLoading(false), 3000);
 
     setTimeout(() => {
       document.getElementsByClassName(style.cookie)[0].style = 'opacity: 1';
-    }, 3000);
+    }, 8000);
   }, [
     cookie, props.darkMode,
   ]);
 
   return (
     <BrowserRouter>
-      <span className={style.pointer}></span>
+      <Loading style={style} isLoading={isLoading} />
       <Navbar />
       {
         !cookie && (
