@@ -7,6 +7,7 @@ import style from './styles/utils/app.css';
 import {
   notfound as NotFound,
   home as Home,
+  resume as Resume,
 } from './pages/*';
 
 import {
@@ -33,26 +34,26 @@ function App() {
     }
   }
 
-  const handleDarkMode = (event) => {
-    if (event.target.value === 'true') {
-      dispatch({
-        type: 'counter/darkMode',
-        payload: {
-          mode: true,
-        },
-      });
-    } else {
+  const handleDarkMode = () => {
+    if (props.darkMode) {
       dispatch({
         type: 'counter/darkMode',
         payload: {
           mode: false,
         },
       });
+    } else {
+      dispatch({
+        type: 'counter/darkMode',
+        payload: {
+          mode: true,
+        },
+      });
     }
   }
 
   useEffect(() => {
-    document.body.style = props.darkMode ? 'background: #151518; color: #ffffffdd; ' : null;
+    document.body.style = props.darkMode ? 'background: #1a1b1e; color: #ffffffdd; ' : null;
     handleCookie();
     setTimeout(() => setIsLoading(false), 3000);
 
@@ -78,11 +79,12 @@ function App() {
       }
       <Switch>
         <Route exact path="/"><Home /></Route>
+        <Route exact path="/resume"><Resume style={style} /></Route>
         <Route><NotFound /></Route>
       </Switch>
       <Footer
         darkMode={props.darkMode}
-        handleDarkMode={(event) => handleDarkMode(event)}
+        handleDarkMode={handleDarkMode}
       />
     </BrowserRouter>
   );
