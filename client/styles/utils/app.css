@@ -85,6 +85,26 @@ p, input, textarea, button {
   padding: 0 0 1px 0;
   cursor: pointer;
 }
+.resume {
+  width: 100%;
+  display: flex; justify-content: center;
+  margin: 80px 0;
+}
+.resume-wrap {
+  position: relative;
+  width: 500px;
+  margin: 0 20px;
+}
+.resume .block {
+  position: absolute;
+  width: 100%; height: 100%;
+  z-index: 1;
+}
+.resume .image {
+  width: 100%;
+  box-shadow: 0 0 8px #b1b1b1;
+  transition: 0.5s ease-in;
+}
 
 @media screen and (max-width: 768px) {
   p, input, textarea, button {

@@ -44,17 +44,9 @@
   grid-area: wrapper03;
   display: flex; justify-content: space-between; align-items: flex-end;
 }
-.wrapper03 .theme {
-  display: flex; align-items: flex-end;
-  gap: 5px;
-}
-.wrapper03 .theme .btn {
+.wrapper03 .theme-btn {
   background: transparent;
   cursor: pointer;
-  border-bottom: 1px solid transparent;
-}
-.wrapper03 .theme .btn:hover {
-  border-bottom: 1px solid #1a1b1e;
 }
 
 @media screen and (max-width: 768px) {
