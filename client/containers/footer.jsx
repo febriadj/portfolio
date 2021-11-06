@@ -62,31 +62,17 @@ function Footer({ handleDarkMode }) {
           <p className={style.copyright}>
             &copy; {new Date().getFullYear()} febriadji.
           </p>
-          <div className={style.theme}>
-            <button
-              className={style.btn}
-              onClick={handleDarkMode}
-              value="true"
-              style={{
-                borderColor: props.darkMode ? '#ffffffdd' : null,
-                color: props.darkMode ? '#ffffffdd' : null,
-              }}
-            >
-              Dark
-            </button>
-            <span className={style.strip}>|</span>
-            <button
-              className={style.btn}
-              onClick={handleDarkMode}
-              value="false"
-              style={{
-                borderColor: !props.darkMode ? '#1a1b1e' : null,
-                color: props.darkMode ? '#ffffffdd' : null,
-              }}
-            >
-              Light
-            </button>
-          </div>
+          <button
+            className={style['theme-btn']}
+            onClick={handleDarkMode}
+          >
+            {
+              props.darkMode && (<box-icon type="reguler" name="sun" color="#ffffffdd" animation="tada"></box-icon>)
+            }
+            {
+              !props.darkMode && (<box-icon type="reguler" name="moon" animation="tada"></box-icon>)
+            }
+          </button>
         </div>
       </div>
     </div>

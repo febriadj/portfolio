@@ -8,7 +8,7 @@ function Loading({ style, isLoading }) {
     <div
       className={style.loading}
       style={{
-        background: props.darkMode ? '#151518' : null,
+        background: props.darkMode ? '#1a1b1e' : null,
         zIndex: !isLoading ? '-9' : null,
         opacity: !isLoading ? '0' : null,
       }}
