@@ -1,21 +1,21 @@
 # Portfolio
 Introduce my name is Febriadji, you can call me Febri, I am 19 years old, based in Jakarta, Indonesia.
 
-I have +2 years experience in programming, during those 2 years I have some personal projects which I have attached in my web portfolio [https://febriadji.herokuapp.com](https://febriadji.herokuapp.com) and you can use them as consideration to contact me.
+I have 1+ years experience in programming, during those 1+ years I have some personal projects which I have attached in my web portfolio [https://febriadji.herokuapp.com](https://febriadji.herokuapp.com) and you can use them as consideration to contact me.
 
 # Skills
 Currently I have mastered several programming stacks that are currently popular, including:
 
 ~~~json
 {
+  "Html & CSS": "98%",
   "JavaScript": "98%",
   "Node.js & Express.js": "95%",
   "React.js & Redux": "89%",
   "Vue.js": "82%",
   "MongoDB & MySQL": "90%",
   "GraphQL & Apollo": "85%",
-  "SocketIO": "51%",
-  "RabbitMQ": "45%"
+  "SocketIO": "45%",
 }
 ~~~
 
