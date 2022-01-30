@@ -1,17 +1,23 @@
 .navbar {
   position: absolute;
   width: 100%;
-  display: flex; justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 8;
 }
 .navbar-wrap {
   width: 1224px;
-  display: flex; justify-content: space-between; align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
   padding: 20px;
 }
 .menu {
-  display: flex; align-items: center;
-  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 .menu .link {
   text-decoration: none;
@@ -19,9 +25,75 @@
   border-bottom: 1px solid #000000;
   font-family: averta-bold;
 }
+.action {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  transform: translate(5px, 0);
+}
+.action .btn {
+  background: transparent;
+  cursor: pointer;
+  width: 35px; height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ham-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.action .ham-btn {
+  display: none;
+}
+.ham-btn .strip {
+  position: absolute;
+  width: 20px; height: 2px;
+  background: #ffffffdd;
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.3s;
+}
+
+.strip1 {
+  transform: translate(0, -7px);
+}
+.strip4 {
+  transform: translate(0, 7px);
+}
+.strip1.active {
+  transform: translate(0, 0);
+  opacity: 0;
+}
+.strip4.active {
+  transform: translate(0, 0);
+  opacity: 0;
+}
+.strip2.active {
+  transition-delay: 0.3s;
+  transform: rotate(45deg);
+}
+.strip3.active {
+  transition-delay: 0.3s;
+  transform: rotate(-45deg);
+}
 
 /* darkmode */
 .link.dark {
   border-color: #ffffffdd;
   color: #ffffffdd;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+  .menu {
+    display: none;
+  }
+  .action .book-btn {
+    display: none;
+  }
+  .action .ham-btn {
+    display: flex;
+  }
 }
