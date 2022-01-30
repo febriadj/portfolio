@@ -1,0 +1,31 @@
+.banner .title {
+  font-family: averta-bold;
+  margin: 10px 0;
+  display: flex; flex-direction: column;
+  font-size: 3rem;
+}
+.banner .title .bright {
+  text-decoration: underline dashed;
+}
+.banner .scroll-btn {
+  display: flex; align-items: center;
+  gap: 10px;
+  background: transparent;
+  margin: 40px 0 0 0;
+}
+.banner .scroll-btn .paragraf {
+  border-bottom: 1px solid #1a1b1e;
+  padding: 0 0 1px 0;
+}
+
+/* darkmode */
+.banner.dark .scroll-btn .paragraf {
+  color: #ffffffdd;
+  border-bottom: 1px solid #ffffffdd;
+}
+
+@media screen and (max-width: 768px) {
+  .banner .title {
+    font-size: 2rem;
+  }
+}

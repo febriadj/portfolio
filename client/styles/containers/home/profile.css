@@ -1,0 +1,40 @@
+.profile {
+  display: flex; flex-direction: column;
+  align-items: center;
+}
+.profile .about {
+  max-width: 768px;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: flex-start;
+  gap: 20px;
+}
+.profile .about .header {
+  display: flex; align-items: center;
+}
+.profile .about .header .strip {
+  display: block;
+  width: 2px; height: 30px;
+  transform: translate(-20px, 0);
+  background: #1a1b1e;
+  border-radius: 2rem;
+}
+.profile .about .header .title {
+  grid-area: title;
+  font-family: averta-bold;
+}
+.profile .about .header .spelling {
+  grid-area: spelling;
+}
+.profile .about .body {
+  display: grid; gap: 20px;
+}
+
+/* darkmode */
+.profile.dark .about .header .strip {
+  background: #ffffffdd;
+}
+
+@media screen and (max-width: 768px) {
+  .profile .about {
+    grid-template-columns: 1fr;
+  }
+}
