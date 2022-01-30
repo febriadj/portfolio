@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import museum from '../../assets/images/museum.jpg';
 import statue from '../../assets/images/statue.jpg';
 
-import style from '../../styles/containers/home/gridbox.css'
+import style from '../../styles/components/home/gridbox.css'
 
 function GridBox() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import style from '../styles/containers/footer.css';
+import style from '../styles/components/footer.css';
 
 function Footer({ handleDarkMode }) {
   const { darkmode } = useSelector((state) => state);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import style from '../styles/containers/loading.css';
+import style from '../styles/components/loading.css';
 
 function Loading() {
   const { darkmode } = useSelector((state) => state);

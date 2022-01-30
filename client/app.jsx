@@ -5,7 +5,7 @@ import 'boxicons';
 import style from './styles/utils/app.css';
 
 import * as page from './pages';
-import * as cont from './containers';
+import * as comp from './components';
 
 function App() {
   const { darkmode } = useSelector((state) => state);
@@ -31,13 +31,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <cont.cookie />
+      <comp.cookie />
       <Switch>
         <Route exact path="/"><page.home /></Route>
         <Route exact path="/resume"><page.resume style={style} /></Route>
         <Route><page.notfound /></Route>
       </Switch>
-      <cont.footer
+      <comp.footer
         darkmode={darkmode}
         handleDarkMode={handleDarkMode}
       />

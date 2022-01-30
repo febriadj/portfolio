@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import style from '../styles/containers/navbar.css';
+import style from '../styles/components/navbar.css';
 
 function Navbar() {
   const { darkmode } = useSelector((state) => state);

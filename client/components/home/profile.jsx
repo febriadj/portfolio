@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
 
-import style from '../../styles/containers/home/profile.css'
+import style from '../../styles/components/home/profile.css'
 
 function Profile() {
   const { darkmode } = useSelector((state) => state);

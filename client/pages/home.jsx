@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import style from '../styles/pages/home.css';
 
-import * as cont0 from '../containers';
-import * as cont1 from '../containers/home';
+import * as comp0 from '../components';
+import * as comp1 from '../components/home';
 
 function Home() {
   const [title, setTitle] = useState(document.title);
@@ -16,12 +16,12 @@ function Home() {
 
   return (
     <div className={style.home}>
-      <cont0.loading />
-      <cont0.navbar />
+      <comp0.loading />
+      <comp0.navbar />
       <div className={style['home-wrap']}>
-        <cont1.banner />
-        <cont1.gridbox />
-        <cont1.profile />
+        <comp1.banner />
+        <comp1.gridbox />
+        <comp1.profile />
       </div>
     </div>
   );

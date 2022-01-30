@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
 
-import style from '../../styles/containers/home/banner.css'
+import style from '../../styles/components/home/banner.css'
 
 function Banner() {
   const { darkmode } = useSelector((state) => state);
