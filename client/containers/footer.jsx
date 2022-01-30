@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from '../styles/containers/footer.css';
 
 function Footer({ handleDarkMode }) {
-  const props = useSelector((state) => state);
+  const { darkmode } = useSelector((state) => state);
 
   return (
     <div className={style.footer}>
@@ -14,16 +14,16 @@ function Footer({ handleDarkMode }) {
             <a
               href="mailto://iamfebriadji@gmail.com?subject=From%20...%20to%20Febriadji"
               target="_blank"
+              className={`${style.link} ${darkmode && style.dark}`}
               rel="noopener noreferrer"
-              style={{ color: props.darkMode ? '#ffffffdd' : null, borderColor: props.darkMode ? '#ffffffdd' : null }}
             >
               iamfebriadji@gmail.com
             </a>
             <a
               href="https://api.whatsapp.com/phone?no=6285156703982"
               target="_blank"
+              className={`${style.link} ${darkmode && style.dark}`}
               rel="noopener noreferrer"
-              style={{ color: props.darkMode ? '#ffffffdd' : null, borderColor: props.darkMode ? '#ffffffdd' : null }}
             >
               +62 851-5670-3982
             </a>
@@ -35,24 +35,24 @@ function Footer({ handleDarkMode }) {
             <a
               href="https://www.linkedin.com/in/febri-adji/"
               target="_blank"
+              className={`${style.link} ${darkmode && style.dark}`}
               rel="noopener noreferrer"
-              style={{ color: props.darkMode ? '#ffffffdd' : null, borderColor: props.darkMode ? '#ffffffdd' : null }}
             >
               LinkedIn
             </a>
             <a
-              href="https://instagram.com/febriadj"
+              href="https://codepen.io/febrithm"
               target="_blank"
+              className={`${style.link} ${darkmode && style.dark}`}
               rel="noopener noreferrer"
-              style={{ color: props.darkMode ? '#ffffffdd' : null, borderColor: props.darkMode ? '#ffffffdd' : null }}
             >
-              Instagram
+              Codepen
             </a>
             <a
               href="https://github.com/febriadj"
               target="_blank"
+              className={`${style.link} ${darkmode && style.dark}`}
               rel="noopener noreferrer"
-              style={{ color: props.darkMode ? '#ffffffdd' : null, borderColor: props.darkMode ? '#ffffffdd' : null }}
             >
               Github
             </a>
@@ -67,10 +67,10 @@ function Footer({ handleDarkMode }) {
             onClick={handleDarkMode}
           >
             {
-              props.darkMode && (<box-icon type="reguler" name="sun" color="#ffffffdd" animation="tada"></box-icon>)
+              darkmode && (<box-icon type="reguler" name="sun" color="#ffffffdd"></box-icon>)
             }
             {
-              !props.darkMode && (<box-icon type="reguler" name="moon" animation="tada"></box-icon>)
+              !darkmode && (<box-icon type="reguler" name="moon"></box-icon>)
             }
           </button>
         </div>
@@ -79,11 +79,4 @@ function Footer({ handleDarkMode }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  const response = {
-    darkMode: state.darkMode,
-  }
-  return response;
-}
-
-export default connect(mapStateToProps)(Footer);
+export default Footer;

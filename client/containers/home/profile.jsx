@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
 
-function Profile({ style }) {
-  const props = useSelector((state) => state);
+import style from '../../styles/containers/home/profile.css'
+
+function Profile() {
+  const { darkmode } = useSelector((state) => state);
 
   return (
-    <div className={style.profile}>
+    <div className={`${style.profile} ${darkmode && style.dark}`}>
       <div className={style.about}>
         <div className={style.header}>
-          <span className={style.strip} style={{ background: props.darkMode ? '#ffffffdd' : null }}></span>
+          <span className={style.strip}></span>
           <div className={style.text}>
             <h1 className={style.title}>About Me</h1>
             <p className={style.spelling}>əˈbout mē</p>

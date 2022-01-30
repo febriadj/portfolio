@@ -1,16 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function Cookie({ style, handleCookie, darkMode }) {
-  const handleSetCookie = () => {
-    document.cookie = `client=${Date.now()}.${1000 - Math.random() * 9000}`;
-    setTimeout(() => handleCookie(), 500);
+import style from '../styles/containers/cookie.css';
+
+function Cookie() {
+  const { darkmode } = useSelector((state) => state);
+  const [cookie, setCookie] = useState({
+    active: false,
+    isOpen: false,
+  });
+
+  const handleCookie = () => {
+    const arr = document.cookie.split(' ');
+
+    for (let i = 0; i < arr.length; i += 1) {
+      if (arr[i].search('client') !== -1) {
+        setCookie((prev) => ({
+          ...prev, active: true, isOpen: false,
+        }));
+      } else {
+        setCookie((prev) => ({
+          ...prev, active: false, isOpen: true,
+        }));
+      }
+    }
   }
 
+  const handleSetCookie = () => {
+    document.cookie = `client=${Date.now()}.${1000 - Math.random() * 9000}`;
+    handleCookie();
+  }
+
+  useEffect(() => {
+    setTimeout(() => handleCookie(), 9000);
+  }, [cookie]);
+
   return (
-    <div className={style.cookie}>
+    <div className={`${style.cookie} ${cookie.isOpen && style.active}`}>
       <div className={style['cookie-wrap']}>
-        <div className={style.box} style={{ background: darkMode ? '#0b0b0c' : null }}>
+        <div className={`${style.box} ${darkmode && style.dark}`}>
           <h3 className={style.title}>This website use Cookies.</h3>
           <p className={style.paragraf}>
             <span>
