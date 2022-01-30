@@ -1,16 +1,17 @@
 const initialState = {
-  darkMode: [true, false][Math.floor(Math.random() * 2)],
+  darkmode: true,
 }
 
 const reducer = (state = initialState, action) => {
-  if (action.type === 'counter/darkMode') {
-    const updateState = {
-      ...state, darkMode: action.payload.mode,
-    }
-    return updateState;
+  switch (action.type) {
+    case 'counter/darkmode':
+      return {
+        ...state,
+        darkmode: action.payload,
+      }
+    default:
+      return state;
   }
-
-  return state;
 }
 
 export default reducer;
