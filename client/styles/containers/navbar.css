@@ -1,17 +1,13 @@
 .navbar {
-  position: relative;
+  position: absolute;
   width: 100%;
   display: flex; justify-content: center;
+  z-index: 8;
 }
 .navbar-wrap {
   width: 1224px;
   display: flex; justify-content: space-between; align-items: center;
   padding: 20px;
-}
-.logo {
-  background: #1a1b1e;
-  display: flex; justify-content: center; align-items: center;
-  width: 40px; height: 40px;
 }
 .menu {
   display: flex; align-items: center;
@@ -22,4 +18,10 @@
   color: #000000;
   border-bottom: 1px solid #000000;
   font-family: averta-bold;
+}
+
+/* darkmode */
+.link.dark {
+  border-color: #ffffffdd;
+  color: #ffffffdd;
 }
