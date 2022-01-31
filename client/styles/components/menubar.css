@@ -1,0 +1,65 @@
+.menubar {
+  position: fixed;
+  width: 100%; height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  transform: translate(100%, 0);
+  transition: cubic-bezier(0.45,0.05,0.55,0.95) 0.3s;
+  z-index: 7;
+}
+.menubar.active {
+  transform: translate(0, 0);
+}
+.menubar-wrap {
+  background: #f1f1f1;
+  width: 100%;
+  margin: 0 0 0 80px;
+  padding: 80px 20px 0 20px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 40px;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+.link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #00000030;
+  color: #000000;
+  text-decoration: none;
+}
+.link .dot {
+  display: none;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #121214;
+}
+.link:hover, .link.active {
+  border-color: #000000bb;
+}
+.link.active .dot {
+  display: block;
+}
+.bookmark .title {
+  font-family: averta-bold, sans-serif;
+}
+
+/* darkmode */
+.menubar.dark .menubar-wrap {
+  background: #121214;
+}
+.menubar.dark .link {
+  color: #ffffffdd;
+  border-color: #ffffff20;
+}
+.menubar.dark .link:hover, .menubar.dark .link.active {
+  border-color: #ffffffbb;
+}
+.menubar.dark .link .dot {
+  background: #ffffffdd;
+}
