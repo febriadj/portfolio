@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from '../styles/components/navbar.css';
 
-function Navbar() {
+function Navbar({ setMenuBarIsOpen, setAuth }) {
   const { darkmode } = useSelector((state) => state);
   const [hamBtn, setHamBtn] = useState(false);
 
   return (
-    <div className={style.navbar}>
+    <div className={`${style.navbar} ${darkmode && style.dark}`}>
       <div className={style['navbar-wrap']}>
         <div className={`${style.logo} ${darkmode && style.dark}`}>
           <box-icon type="reguler" name="meh-blank" color={darkmode ? '#ffffffdd' : '#000000dd'}></box-icon>
@@ -19,7 +19,16 @@ function Navbar() {
           <Link to="/contact" className={`${style.link} ${darkmode && style.dark}`}>Contact</Link>
         </div>
         <div className={style.action}>
-          <button type="button" className={`${style.btn} ${style['auth-btn']}`}>
+          <button
+            type="button"
+            className={`${style.btn} ${style['auth-btn']}`}
+            onClick={() => {
+              setAuth((prev) => ({
+                ...prev,
+                login: true,
+              }));
+            }}
+          >
             <box-icon name="user" color={darkmode ? '#ffffffdd' : '#000000dd'}></box-icon>
           </button>
           <button type="button" className={`${style.btn} ${style['book-btn']}`}>
@@ -30,6 +39,7 @@ function Navbar() {
             className={`${style.btn} ${style['ham-btn']}`}
             onClick={() => {
               setHamBtn((prev) => !prev);
+              setMenuBarIsOpen((prev) => !prev);
             }}
           >
             <span className={`${style.strip} ${style.strip1} ${hamBtn && style.active}`}></span>

@@ -28,7 +28,7 @@ function Footer({ handleDarkMode }) {
               +62 851-5670-3982
             </a>
           </span>
-          <p className={style.location}>Jakarta, Indonesia</p>
+          <p className={style.location}>Jakarta, Indonesia. 15153</p>
         </div>
         <div className={style.wrapper02}>
           <span className={style['media-social']}>
