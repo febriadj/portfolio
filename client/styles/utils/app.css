@@ -27,6 +27,12 @@ body {
 p, input, textarea, button {
   font-size: 1rem;
   border-radius: 0;
+  background: transparent;
+  font-family: averta;
+}
+input:-webkit-autofill {
+  transition: "color 9999s ease-out, background-color 9999s ease-out";
+  transition-delay: 9999s;
 }
 
 .resume {
