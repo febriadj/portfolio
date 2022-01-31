@@ -3,9 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect, useSelector } from 'react-redux';
 import style from '../styles/pages/notfound.css';
 
+import * as comp0 from '../components';
+import * as comp1 from '../components/auth';
+
 function NotFound() {
   const [title, setTitle] = useState(document.title);
   const props = useSelector((state) => state);
+  const [menuBarIsOpen, setMenuBarIsOpen] = useState(false);
+
+  const [auth, setAuth] = useState({
+    login: false,
+    register: false,
+  });
 
   useEffect(() => {
     setTitle('@febriadj - 404 Page Not Found');
@@ -16,6 +25,23 @@ function NotFound() {
 
   return (
     <div className={style.notfound}>
+      <comp0.loading />
+      <comp0.navbar
+        setMenuBarIsOpen={setMenuBarIsOpen}
+        setAuth={setAuth}
+      />
+      <comp0.menubar
+        location="/"
+        menuBarIsOpen={menuBarIsOpen}
+      />
+      <comp1.login
+        loginFormIsOpen={auth.login}
+        setAuth={setAuth}
+      />
+      <comp1.register
+        registerFormIsOpen={auth.register}
+        setAuth={setAuth}
+      />
       <div className={style['notfound-wrap']}>
         <div className={style.banner}>
           <h1 className={style.title}>Oops. <span>404</span></h1>
