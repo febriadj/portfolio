@@ -1,7 +1,7 @@
 const server = require('./server');
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 require('./ngrok')(port);
 
 server.listen(port);
-console.log(`server running on port ${port}`);
+console.log(`[${port}] server running...`);
