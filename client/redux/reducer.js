@@ -1,5 +1,7 @@
 const initialState = {
   darkmode: true,
+  isLoggedIn: false,
+  user: null,
 }
 
 const reducer = (state = initialState, action) => {
@@ -8,6 +10,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         darkmode: action.payload,
+      }
+    case 'counter/isLoggedIn':
+      return {
+        ...state,
+        isLoggedIn: action.payload,
+      }
+    case 'counter/user':
+      return {
+        ...state,
+        user: action.payload,
       }
     default:
       return state;
