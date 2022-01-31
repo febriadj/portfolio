@@ -23,6 +23,7 @@
         "linebreak-style": "off",
         "brace-style": "off",
         "semi": "off",
+        "no-underscore-dangle": "off",
         "react/no-unescaped-entities": "off",
         "react/jsx-one-expression-per-line": "off",
         "react/prop-types": "off",
