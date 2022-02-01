@@ -1,0 +1,19 @@
+.article {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.article-wrap {
+  width: 768px;
+  display: grid;
+  gap: 40px;
+  padding: 140px 20px 80px 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .article-wrap {
+    gap: 80px;
+    grid-template-columns: 1fr;
+  }
+}
