@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import style from '../styles/components/navbar.css';
 
 function Navbar({ setMenuBarIsOpen, setAuth }) {
-  const { darkmode } = useSelector((state) => state);
+  const { darkmode, isLoggedIn } = useSelector((state) => state);
   const [hamBtn, setHamBtn] = useState(false);
 
   return (
@@ -19,18 +19,29 @@ function Navbar({ setMenuBarIsOpen, setAuth }) {
           <Link to="/contact" className={`${style.link} ${darkmode && style.dark}`}>Contact</Link>
         </div>
         <div className={style.action}>
-          <button
-            type="button"
-            className={`${style.btn} ${style['auth-btn']}`}
-            onClick={() => {
-              setAuth((prev) => ({
-                ...prev,
-                login: true,
-              }));
-            }}
-          >
-            <box-icon name="user" color={darkmode ? '#ffffffdd' : '#000000dd'}></box-icon>
-          </button>
+          {
+            isLoggedIn ? (
+              <Link
+                to="/dashboard"
+                className={`${style.btn} ${style['auth-btn']}`}
+              >
+                <box-icon name="user" color={darkmode ? '#ffffffdd' : '#000000dd'}></box-icon>
+              </Link>
+            ) : (
+              <button
+                type="button"
+                className={`${style.btn} ${style['auth-btn']}`}
+                onClick={() => {
+                  setAuth((prev) => ({
+                    ...prev,
+                    login: true,
+                  }));
+                }}
+              >
+                <box-icon name="user" color={darkmode ? '#ffffffdd' : '#000000dd'}></box-icon>
+              </button>
+            )
+          }
           <button type="button" className={`${style.btn} ${style['book-btn']}`}>
             <box-icon name="book-bookmark" color={darkmode ? '#ffffffdd' : '#000000dd'}></box-icon>
           </button>
