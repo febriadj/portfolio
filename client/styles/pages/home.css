@@ -5,8 +5,9 @@
 }
 .home-wrap {
   width: 1224px;
-  display: grid; gap: 120px;
-  padding: 160px 20px;
+  display: grid;
+  gap: 80px;
+  padding: 140px 20px 80px 20px;
 }
 
 @media screen and (max-width: 768px) {

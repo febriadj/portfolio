@@ -53,7 +53,7 @@
 
 /* darkmode */
 .cookie .box.dark {
-  background: #0b0b0c;
+  background: #35373b;
 }
 
 @media screen and (max-width: 500px) {
