@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'boxicons';
-import style from './styles/utils/app.css';
+import './styles/utils/app.css';
 
 import * as page from './pages';
 import * as comp from './components';
@@ -12,20 +12,6 @@ function App() {
 
   const dispatch = useDispatch();
   const { darkmode, isLoggedIn } = useSelector((state) => state);
-
-  const handleDarkMode = () => {
-    if (darkmode) {
-      dispatch({
-        type: 'counter/darkmode',
-        payload: false,
-      });
-    } else {
-      dispatch({
-        type: 'counter/darkmode',
-        payload: true,
-      });
-    }
-  }
 
   const handleGetUser = async () => {
     try {
@@ -58,19 +44,12 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    if (token) {
-      dispatch({
-        type: 'counter/isLoggedIn',
-        payload: true,
-      });
+    dispatch({
+      type: 'counter/isLoggedIn',
+      payload: !!token,
+    });
 
-      handleGetUser();
-    } else {
-      dispatch({
-        type: 'counter/isLoggedIn',
-        payload: false,
-      });
-    }
+    if (token) handleGetUser();
   }, [isLoggedIn]);
 
   return (
@@ -78,13 +57,12 @@ function App() {
       <comp.cookie />
       <Switch>
         <Route exact path="/"><page.home /></Route>
-        <Route exact path="/resume"><page.resume style={style} /></Route>
+        {
+          isLoggedIn && <Route exact path="/dashboard"><page.dashboard /></Route>
+        }
+        <Route exact path="/articles"><page.article /></Route>
         <Route><page.notfound /></Route>
       </Switch>
-      <comp.footer
-        darkmode={darkmode}
-        handleDarkMode={handleDarkMode}
-      />
     </BrowserRouter>
   );
 }
