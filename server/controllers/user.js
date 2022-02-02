@@ -71,7 +71,7 @@ exports.login = async (req, res) => {
       throw newErr;
     }
 
-    const token = await jwt.sign({ userId: user._id }, process.env.JWT_PRIVATE_KEY);
+    const token = await jwt.sign({ id: user._id }, process.env.JWT_PRIVATE_KEY);
 
     response({
       res,
@@ -91,7 +91,8 @@ exports.login = async (req, res) => {
 
 exports.findOne = async (req, res) => {
   try {
-    const user = await UserModel.findOne({ _id: req.user.userId });
+    const user = await UserModel.findOne({ _id: req.user.id });
+
     response({
       res,
       message: 'Client request has been successfully responded',
