@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
 
     if (!header) {
       const newErr = {
-        message: '',
+        message: 'This route requires a token in the header',
       }
       throw newErr;
     }
