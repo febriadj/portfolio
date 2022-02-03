@@ -6,7 +6,7 @@ function Footer({ handleDarkMode }) {
   const { darkmode } = useSelector((state) => state);
 
   return (
-    <div className={style.footer}>
+    <div className={`${style.footer} ${darkmode && style.dark}`}>
       <div className={style['footer-wrap']}>
         <div className={style.wrapper01}>
           <h2 className={style.title}>Let's works together</h2>

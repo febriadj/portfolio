@@ -9,7 +9,7 @@ function Loading() {
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 3000);
-  }, [darkmode]);
+  }, [isLoading]);
 
   return (
     <div
