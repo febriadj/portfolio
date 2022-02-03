@@ -1,11 +1,8 @@
 .dashboard {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 .dashboard-wrap {
-  width: 1224px;
   display: grid;
   gap: 40px;
 }
