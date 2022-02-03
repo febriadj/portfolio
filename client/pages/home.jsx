@@ -29,7 +29,7 @@ function Home() {
 
   return (
     < >
-      <div className={style.home}>
+      <div className={`${style.home} ${darkmode && style.dark}`}>
         <comp0.loading />
         <comp0.navbar
           setMenuBarIsOpen={setMenuBarIsOpen}

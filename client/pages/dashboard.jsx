@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import style from '../styles/pages/dashboard.css';
 
-import * as comp from '../components/dashboard';
+import * as comp0 from '../components';
+import * as comp1 from '../components/dashboard';
 import * as cont from '../containers/dashboard';
 
 function Dashboard() {
@@ -15,8 +16,9 @@ function Dashboard() {
 
   return (
     <div className={style.dashboard}>
+      <comp0.loading />
       <div className={style['dashboard-wrap']}>
-        <comp.sidebar
+        <comp1.sidebar
           setPage={setPage}
         />
         { page.main && <cont.main /> }
