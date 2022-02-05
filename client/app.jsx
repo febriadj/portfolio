@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import 'boxicons';
 import './styles/utils/app.css';
 
@@ -55,15 +55,15 @@ function App() {
   return (
     <HashRouter>
       <comp.cookie />
-      <Switch>
+      <Routes>
         {
-          isLoggedIn && <Route exact path="/dashboard"><page.dashboard /></Route>
+          isLoggedIn && <Route exact path="/dashboard" element={<page.dashboard />}></Route>
         }
-        <Route exact path="/"><page.home /></Route>
-        <Route exact path="/articles"><page.article /></Route>
-        <Route exact path="/articles/:url"><page.articleContent /></Route>
-        <Route><page.notfound /></Route>
-      </Switch>
+        <Route exact path="/" element={<page.home />}></Route>
+        <Route exact path="/articles" element={<page.article />}></Route>
+        <Route exact path="/articles/:url" element={<page.articleContent />}></Route>
+        <Route path="*" element={<page.notfound />}></Route>
+      </Routes>
     </HashRouter>
   );
 }
