@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import 'boxicons';
 import './styles/utils/app.css';
 
@@ -53,17 +53,18 @@ function App() {
   }, [isLoggedIn]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <comp.cookie />
       <Switch>
-        <Route exact path="/"><page.home /></Route>
         {
           isLoggedIn && <Route exact path="/dashboard"><page.dashboard /></Route>
         }
+        <Route exact path="/"><page.home /></Route>
         <Route exact path="/articles"><page.article /></Route>
+        <Route exact path="/articles/:url"><page.articleContent /></Route>
         <Route><page.notfound /></Route>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
