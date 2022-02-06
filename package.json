@@ -52,7 +52,6 @@
     "boxicons": "^2.1.1",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
-    "ckeditor4-react": "^2.1.0",
     "cloudinary": "^1.28.1",
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
