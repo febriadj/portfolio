@@ -4,11 +4,16 @@
 }
 @font-face {
   font-family: 'averta-bold';
-  src: url('../../assets/fonts/averta-standard/averta-semibold.ttf');
+  src: url('../../assets/fonts/averta-standard/averta-bold.ttf');
 }
 @font-face {
   font-family: 'averta';
   src: url('../../assets/fonts/averta-standard/averta-regular.ttf');
+}
+
+:root {
+  --font-body: averta, sans-serif;
+  --code: jetbrains-mono-reguler, monospace;
 }
 
 * {

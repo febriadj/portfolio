@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   z-index: 8;
-  background: #000000b0;
+  background: #0d0e0fb0;
 }
 .login.active {
   display: flex;
@@ -76,10 +76,10 @@
 
 /* darkmode */
 .login.dark .login-wrap {
-  background: #1a1b1e;
+  background: #35373b;
 }
 .login.dark .submit-btn {
-  background: #35373b;
+  background: #ffffff20;
 }
 .login.dark .field {
   border-color: #ffffff80;

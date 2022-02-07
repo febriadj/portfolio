@@ -22,8 +22,11 @@
 .menu .link {
   text-decoration: none;
   color: #000000;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid transparent;
   font-family: averta-bold;
+}
+.menu .link.active {
+  border-color: #000000;
 }
 .action {
   display: flex;
@@ -79,8 +82,10 @@
 
 /* darkmode */
 .link.dark {
-  border-color: #ffffffdd;
   color: #ffffffdd;
+}
+.link.dark.active {
+  border-color: #ffffffdd;
 }
 .navbar.dark .ham-btn .strip {
   background: #ffffffdd;
