@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from '../styles/pages/home.css';
 
 import * as comp0 from '../components';
@@ -7,7 +7,6 @@ import * as comp1 from '../components/home';
 import * as comp2 from '../components/auth';
 
 function Home() {
-  const dispatch = useDispatch();
   const { darkmode } = useSelector((state) => state);
 
   const [menuBarIsOpen, setMenuBarIsOpen] = useState(false);
@@ -16,15 +15,8 @@ function Home() {
     register: false,
   });
 
-  const handleDarkMode = () => {
-    dispatch({
-      type: 'counter/darkmode',
-      payload: !darkmode,
-    });
-  }
-
   useEffect(() => {
-    document.title = '@febriadj - Home';
+    document.title = '@febriadji - Home';
   });
 
   return (
@@ -53,10 +45,7 @@ function Home() {
           <comp1.profile />
         </div>
       </div>
-      <comp0.footer
-        darkmode={darkmode}
-        handleDarkMode={handleDarkMode}
-      />
+      <comp0.footer />
     </>
   );
 }

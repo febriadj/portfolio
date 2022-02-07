@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from '../styles/pages/article.css';
 
 import * as comp0 from '../components';
@@ -7,24 +7,35 @@ import * as comp1 from '../components/article';
 import * as comp2 from '../components/auth';
 
 function Article() {
-  const dispatch = useDispatch();
+  const isDev = process.env.NODE_ENV === 'development';
+
   const { darkmode } = useSelector((state) => state);
 
+  const [articles, setArticles] = useState([]);
   const [menuBarIsOpen, setMenuBarIsOpen] = useState(false);
   const [auth, setAuth] = useState({
     login: false,
     register: false,
   });
 
-  const handleDarkMode = () => {
-    dispatch({
-      type: 'counter/darkmode',
-      payload: !darkmode,
-    });
+  const handleGetArticles = async () => {
+    try {
+      const url = isDev ? 'http://localhost:8080/api/articles' : '/api/articles';
+
+      const request = await (await fetch(url)).json();
+      setArticles(request.data);
+    }
+    catch (error0) {
+      console.error(error0.message);
+    }
   }
 
   useEffect(() => {
-    document.title = '@febriadj - Articles';
+    handleGetArticles();
+  }, []);
+
+  useEffect(() => {
+    document.title = '@febriadji - Articles';
   });
 
   return (
@@ -32,11 +43,12 @@ function Article() {
       <div className={`${style.article} ${darkmode && style.dark}`}>
         <comp0.loading />
         <comp0.navbar
+          location="/articles"
           setMenuBarIsOpen={setMenuBarIsOpen}
           setAuth={setAuth}
         />
         <comp0.menubar
-          location="/"
+          location="/articles"
           menuBarIsOpen={menuBarIsOpen}
         />
         <comp2.login
@@ -48,13 +60,10 @@ function Article() {
           setAuth={setAuth}
         />
         <div className={style['article-wrap']}>
-          <comp1.latest />
+          <comp1.latest articles={articles} />
         </div>
       </div>
-      <comp0.footer
-        darkmode={darkmode}
-        handleDarkMode={handleDarkMode}
-      />
+      <comp0.footer />
     </>
   );
 }
