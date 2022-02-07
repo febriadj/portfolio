@@ -1,0 +1,34 @@
+.sidebar {
+  position: fixed;
+  width: 200px; height: 100%;
+}
+.sidebar-wrap {
+  display: grid;
+  gap: 40px;
+  padding: 20px 20px 20px 40px;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: #ffffffdd;
+  cursor: pointer;
+}
+.menu .link {
+  padding: 10px 0;
+}
+.menu .link:hover {
+  border-color: #ffffffdd;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  } 
+}
