@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@tinymce/tinymce-react": "^3.13.0",
+    "axios": "^0.25.0",
     "bcrypt": "^5.0.1",
     "boxicons": "^2.1.1",
     "chai": "^4.3.6",
